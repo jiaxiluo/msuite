@@ -11,5 +11,5 @@ $(document).ready(function(){
     $('.thePager').click(function (e) {
     e.preventDefault();
     });
-
+	
 });
