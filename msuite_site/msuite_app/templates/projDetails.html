@@ -47,12 +47,21 @@
 	          	</ul>
 	          	<h4>Description:</h4>
 		        <li>{{ project.description }}</li>
+		        <br>
+		        <a class = "leaveComment">Leave a comment</a>
 	        </div>
 	        <div class="span6">
 	          	<img src="{{ project.image.url }}">
 	        </div>
+	        
+	        
       	</div>
-
+		<div id="commentBox" style="display:none">
+        <div class="input-group">
+  		<input style = "width: 100%;" type="text" class="form-control" placeholder="...">
+		</div>
+   		</div>
+  
   		{% for dev in developers_list %}
     	<div id="{{ dev.id }}" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     		<div class="modal-header">

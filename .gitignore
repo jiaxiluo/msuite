@@ -56,3 +56,5 @@ msuite_site/msuite_app/forms.pyc
 msuite_site/static/.DS_Store
 
 msuite_site/static/js/.DS_Store
+
+msuite_site/static/css/.DS_Store
