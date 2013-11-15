@@ -8,5 +8,8 @@ $(document).ready(function(){
     e.preventDefault();
     $("#comments").toggle(1000);
     });
+    $('.thePager').click(function (e) {
+    e.preventDefault();
+    });
 
 });
