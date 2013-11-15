@@ -4,5 +4,9 @@ $(document).ready(function(){
     	e.preventDefault();
         $("#commentBox").toggle(1000);
     });
+    $('.showComments').click(function (e) {
+    e.preventDefault();
+    $("#comments").toggle(1000);
+    });
 
 });

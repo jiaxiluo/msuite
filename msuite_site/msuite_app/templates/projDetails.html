@@ -49,6 +49,7 @@
 		        <li>{{ project.description }}</li>
 		        <br>
 		        <a class = "leaveComment">Leave a comment</a>
+		        
 	        </div>
 	        <div class="span6">
 	          	<img src="{{ project.image.url }}">
@@ -62,8 +63,20 @@
   		<input style = "width: 90%;" type="text" class="form-control" placeholder="...">
   		<button type="button" class="btn btn-primary" style="vertical-align: top;">Submit</button>
 		</div>
+
    		</div>
-  
+   		<a class = "showComments">Show/hide comments</a>
+   		<div class="well" id="comments" style="background-color: white; display:none;">
+   		<h4>Comments </h4>
+   		<div class="well">
+   		<span class="label label-default">Anonymous/uniqname</span><br>
+   		My comment about this project
+   		</div>
+   		<div class="well">
+   		<span class="label label-default">Anonymous/uniqname</span><br>
+   		another comment
+   		</div>
+  </div>
   		{% for dev in developers_list %}
     	<div id="{{ dev.id }}" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     		<div class="modal-header">
