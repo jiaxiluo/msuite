@@ -44,3 +44,9 @@ msuite_site/__init__.pyc
 *.pyc
 
 msuite_site/__init__.pyc
+
+msuite_site/msuite_app/__init__.pyc
+
+msuite_site/msuite_app/forms.pyc
+
+msuite_site/msuite_app/forms.pyc
