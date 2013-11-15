@@ -43,6 +43,8 @@ msuite_site/__init__.pyc
 
 *.pyc
 
+*.DS_Store
+
 msuite_site/__init__.pyc
 
 msuite_site/msuite_app/__init__.pyc
@@ -50,3 +52,7 @@ msuite_site/msuite_app/__init__.pyc
 msuite_site/msuite_app/forms.pyc
 
 msuite_site/msuite_app/forms.pyc
+
+msuite_site/static/.DS_Store
+
+msuite_site/static/js/.DS_Store
