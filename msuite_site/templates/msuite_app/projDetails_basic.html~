@@ -1,0 +1,20 @@
+{# Template for the MSuite project details page #}
+
+{% extends "msuite_app/base_basic.html" %}
+
+{% block content %}
+	<h1>{{ project.name }}</h1>
+	<img src="{{ project.image.url }}">
+	<p><ul>
+		<li>Date Posted: {{ project.date_published|date }}</li>
+		<li>Semester:	 {{ project.semester }}</li>
+		<li>Sponsor:	 {{ project.sponsor_name }}</li>
+		<li>Developers:  {{ project.developer }}</li>
+		<li>Platforms:	 {{ project.platforms }}</li>
+		<li>Paid:        {{ project.paid }}</li>
+		<li>Description: {{ project.description }}</li>
+		<li>Likes:		 {{ project.likes }}</li>
+		
+	</p></ul>
+{% endblock %}
+

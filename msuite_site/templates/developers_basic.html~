@@ -1,0 +1,19 @@
+{# Template for the MSuite developers page #}
+{% extends "msuite_app/base_basic.html" %}
+
+{# Body content #}
+{% block content %}
+	<h1>MSuite Developers</h1>
+	{% for d in developers_list %}
+	<h2>{{ d.first_name }} {{ d.last_name }}</h2>
+		<p><ul>
+			<li>Majors:		{{ d.majors }}</li>
+			<li>Projects: 	{{ d.projects }}</li>
+			<li>Status:		{{ d.status }}</li>
+			<li>Bio:        {{ d.bio }}</li>
+		</p></ul>
+	{% empty  %}
+		<h2>There are currently no developers</h2>
+	{% endfor %}
+{% endblock %}
+
