@@ -1,0 +1,23 @@
+{# Template for the MSuite landing page #}
+
+{% extends "msuite_app/base_basic.html" %}
+
+{# Body content #}
+{% block content %}
+	<h1>Welcome to MSuite!</h1>
+	<h2>Latest Projects</h2>
+	{% for p in projects_list|slice:":5" %}
+	<h3>{{ p.name }}</h3>
+	<img src="{{ p.image.url }}">
+		<p><ul>
+			<li>Date Posted: {{ p.date_posted|date }}</li>
+			<li>Sponsors:    {{ p.sponsor_name|truncatewords:3 }}</li>
+			<li>Developers:  {{ p.developer.first_name }} {{ p.developer.last_name }}</li>
+			<li>Paid:        {{ p.paid }}</li>
+			<li>Description: {{ p.description|truncatewords:10 }}</li>
+		</p></ul>
+	{% empty  %}
+		<h3>There are currently no projects</h3>
+	{% endfor %}
+{% endblock %}
+
