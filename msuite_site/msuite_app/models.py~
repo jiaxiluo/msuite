@@ -63,7 +63,7 @@ class Project(models.Model):
 	# mobile platforms used by the projects, e.g., Android, iOS
 	platforms = CategoryField(blank=True)
 	# is the project a paid opportunity
-	#paid = models.CharField(max_length=10, verbose_name='paid project')
+	paid = models.CharField(max_length=10, verbose_name='paid project')
 	# image to be displayed for the project
 	image = models.FileField("Project Image", upload_to="images/projects/", blank=True)
 	# how many likes the project has

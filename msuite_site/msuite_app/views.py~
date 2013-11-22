@@ -54,5 +54,5 @@ def projDetails(request, proj_id):
 		'developers_list' : developers_list,
 		'like_liked': like_liked,
 	} )
-	return render(request, 'msuite_app/projDetails.html', c)
+	return render(request, 'msuite_app/projDetails_basic.html', c)
 

@@ -1,0 +1,95 @@
+{% extends "base.html" %}
+{% block content %}
+
+	<!-- NAVBAR
+	================================================== -->
+	<div class="navbar-wrapper">
+		<!-- Wrap the .navbar in .container to center it within the absolutely positioned parent. -->
+		<div class="container">
+
+		  	<div class="navbar-index navbar navbar-inverse">
+				<div class="navbar-inner">
+			  		<img class="brand" src="static/img/myPictures/msuite_logo2.png">
+			  		<a class="brand" href="#">Mobile Developing @Michigan</a>
+			  		<div class="nav-collapse collapse">
+						<ul class="nav">
+				  			<li class="active"><a href="">Home</a></li>
+				  			<li><a href="developers">Developers</a></li>
+				  			<li><a href="#contact">Contact</a></li>
+						</ul>
+			  		</div><!--/.nav-collapse -->
+				</div><!-- /.navbar-inner -->
+		  	</div><!-- /.navbar -->
+		</div> <!-- /.container -->
+	</div><!-- /.navbar-wrapper -->
+
+
+
+	<!-- Carousel
+	================================================== -->
+	<div id="myCarousel" class="carousel slide">
+		<div class="carousel-inner">
+		{% for proj in latest_projs_list %}
+		  	{% if forloop.first %}
+		  	<div class="item active">
+		  	{% else %}
+		  	<div class="item">
+		  	{% endif %}
+				<img src="{{ proj.image.url }}" alt="">
+				<div class="container">
+			  		<div class="carousel-caption">
+						<h1>{{ proj.name }}</h1>
+						<p class="lead">{{ proj.description }}</p>
+						<a class="btn btn-large btn-primary" href="{{ proj.id }}">Learn more</a>
+				  	</div>
+				</div>
+			</div>
+			{% endfor %}
+		</div>
+		<a class="left carousel-control" href="#myCarousel" data-slide="prev">&lsaquo;</a>
+		<a class="right carousel-control" href="#myCarousel" data-slide="next">&rsaquo;</a>
+	</div><!-- /.carousel -->  
+
+	<div class="container">
+
+	<div>
+		<h1 style = "display: inline;">More Projects!</h1>
+		<label class="pull-right" style = "display: inline-block; height: 30px;">organize: &nbsp
+		
+<form class="pull-right" action="" style = "display: inline-block;">
+<select name="organize">
+<option value="alphabetically">alphabetically</option>
+<option value="newest">by date (newest first)</option>
+<option value="oldest">by date (oldest first)</option>
+</select>
+</form>
+</label>		
+		
+
+	</div>  
+
+	<hr>
+	<div>
+		<ul class="thumbnails">
+			{% for proj in other_projs_list %}
+		  	<li class="span4">
+				<a href="{{ proj.id }}" class="thumbnail inactive">
+				  	<img src="{{ proj.image.url }}" alt="">
+				  	<h3>{{ proj.name }}</h3>
+				</a>
+		  	</li>
+		  	{% endfor %}
+		</ul>
+	</div>
+
+	<hr>
+
+	<footer id="contact">
+		<span>Contact us: msuite@umich.edu</span>
+		<span class="copy">&copy; Michigan Mobile Manufacturing 2013</span>
+	</footer>
+
+	</div> <!-- /container -->
+	
+{% endblock %}
+
