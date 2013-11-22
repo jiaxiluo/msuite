@@ -3,10 +3,6 @@ msuite_site/.DS_Store
 
 msuite_site/msuite_app/.DS_Store
 
-msuite_site/msuite_app/.DS_Store
-
-msuite_site/msuite_app/templates/.DS_Store
-
 msuite_site/msuite_app/templates/.DS_Store
 
 .Python
@@ -21,11 +17,7 @@ include/
 
 msuite_site/urls.pyc
 
-msuite_site/urls.pyc
-
 msuite_site/settings.pyc
-
-msuite_site/settings.py
 
 msuite_site/msuite_app/views.pyc
 
@@ -37,19 +29,11 @@ msuite_site/__init__.pyc
 
 *.pyc
 
-*.pyc
-
-*.pyc
-
-*.pyc
-
 *.DS_Store
 
 msuite_site/__init__.pyc
 
 msuite_site/msuite_app/__init__.pyc
-
-msuite_site/msuite_app/forms.pyc
 
 msuite_site/msuite_app/forms.pyc
 
@@ -62,3 +46,5 @@ msuite_site/static/css/.DS_Store
 msuite_site/static/img/.DS_Store
 
 msuite_site/templates/.DS_Store
+
+msuite_site/images/.DS_Store

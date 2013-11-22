@@ -4,7 +4,7 @@ from django.conf.urls.defaults import patterns, include, url
 from django.contrib import admin
 admin.autodiscover()
 
-from msuite_app.views import home, developers, projDetails
+from msuite_app.views import landing, developers, projDetails
 
 from django.conf import settings
 
@@ -18,9 +18,16 @@ urlpatterns = patterns('',
 
     # Uncomment the next line to enable the admin:
     url(r'^admin/', include(admin.site.urls)),
-	url(r'^$', home),
+    
+    # landing page
+	url(r'^$', landing),
+	# page to list developers
 	url(r'^developers/$', developers),
+	# page to display details of project given the project id
 	url(r'^(?P<proj_id>\w+)/$', projDetails),
-	url(r'^images/(?P<path>.*)/$', 'django.views.static.serve', {'document_root': settings.MEDIA_ROOT}), 
+	# handles media files
+	url(r'^media/(?P<path>.*)/$', 'django.views.static.serve', {'document_root': settings.MEDIA_ROOT}), 
+	# handles static files
     url(r'^static/(?P<path>.*)/$', 'django.views.static.serve', {'document_root': settings.STATIC_ROOT}), 
 )
+
