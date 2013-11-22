@@ -13,7 +13,7 @@ MANAGERS = ADMINS
 DATABASES = {
     'default': {
         'ENGINE': 'django_mongodb_engine', # Add 'postgresql_psycopg2', 'postgresql', 'mysql', 'sqlite3' or 'oracle'.
-        'NAME': 'test2_s',                      # Or path to database file if using sqlite3.
+        'NAME': 'test',                      # Or path to database file if using sqlite3.
     }
 }
 
@@ -111,6 +111,7 @@ TEMPLATE_DIRS = (
     # Don't forget to use absolute paths, not relative paths.
 
 	os.path.join(os.path.dirname(__file__), 'templates/').replace('\\','/'),
+    os.path.join(os.path.dirname(__file__), 'templates/msuite_app').replace('\\','/'),
 )
 
 INSTALLED_APPS = (

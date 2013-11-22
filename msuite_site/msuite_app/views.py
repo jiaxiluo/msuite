@@ -43,7 +43,7 @@ def projDetails(request, proj_id):
 	# query database for the project object specified in the url. raise 404 if object does not exist
 	project = Project.objects.get(id=proj_id)
 	# list of developers on the project
-	developers_list = [ project.developer ]
+	developers_list = [ project.developer0, project.developer1, project.developer2, project.developer3, project.developer4 ]
 	# text for like button
 	if (request.method == 'POST'):
 		like_liked = "Liked"

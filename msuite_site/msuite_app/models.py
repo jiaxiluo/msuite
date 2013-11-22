@@ -68,6 +68,8 @@ class Project(models.Model):
 	image = models.FileField("Project Image", upload_to="images/projects/", blank=True)
 	# how many likes the project has
 	likes = models.IntegerField()
+	# comments left by users
+	comments = CategoryField(blank=True)
 	# additional key words to improve searchability
 	#tags = CategoryField(blank=True)
 	# who sponsors (runs) the project

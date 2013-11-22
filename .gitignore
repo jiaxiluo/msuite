@@ -48,3 +48,7 @@ msuite_site/static/img/.DS_Store
 msuite_site/templates/.DS_Store
 
 msuite_site/images/.DS_Store
+
+*.html~
+
+*.html~*

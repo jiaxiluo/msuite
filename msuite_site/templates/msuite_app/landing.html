@@ -29,7 +29,7 @@
 	================================================== -->
 	<div id="myCarousel" class="carousel slide">
 		<div class="carousel-inner">
-		{% for proj in latest_projs_list %}
+		{% for proj in projects_list|slice:":5" %}
 		  	{% if forloop.first %}
 		  	<div class="item active">
 		  	{% else %}
@@ -39,7 +39,7 @@
 				<div class="container">
 			  		<div class="carousel-caption">
 						<h1>{{ proj.name }}</h1>
-						<p class="lead">{{ proj.description }}</p>
+						<p class="lead">{{ proj.description|truncatewords:20 }}</p>
 						<a class="btn btn-large btn-primary" href="{{ proj.id }}">Learn more</a>
 				  	</div>
 				</div>
@@ -71,7 +71,7 @@
 	<hr>
 	<div>
 		<ul class="thumbnails">
-			{% for proj in other_projs_list %}
+			{% for proj in projects_list|slice:"5:" %}
 		  	<li class="span4">
 				<a href="{{ proj.id }}" class="thumbnail inactive">
 				  	<img src="{{ proj.image.url }}" alt="">

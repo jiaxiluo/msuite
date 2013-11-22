@@ -32,20 +32,21 @@
       	<div class="row">
 	        <div class="span6">
 	        	<h4>Sponsor</h4>
-	        	<li>{{ project.sponsor_name }}</li>
-	        	<li>{{ project.sponsor_website }}</li>
+	        	<li>{{ project.sponsor_name }} {% if project.sponsor_website %}({{ project.sponsor_website }}){% endif %}</li>
 	          	<h4>Developers:</h4>
 	          	<ul>
-	          		<!--
-	            	{% for dev in developers_list %}
-						<li><a href="#{{ dev.id }}"  data-toggle="modal">{{ dev.name }}</a></li>
+	          		
+	        {% for dev in developers_list %}
+            {% if dev %}
+						<li><a href="#{{ dev.id }}"  data-toggle="modal">{{ dev.first_name }} {{ dev.last_name }}</a></li>
+            {% endif %}
 					{% endfor %}
-					-->
-					{% if project.developer0 %}<li>{{ project.developer0.first_name }} {{ project.developer0.last_name }}</li>{% endif %}
+					
+					<!-- {% if project.developer0 %}<li>{{ project.developer0.first_name }} {{ project.developer0.last_name }}</li>{% endif %}
 					{% if project.developer1 %}<li>{{ project.developer1.first_name }} {{ project.developer1.last_name }}</li>{% endif %}
 					{% if project.developer2 %}<li>{{ project.developer2.first_name }} {{ project.developer2.last_name }}</li>{% endif %}
 					{% if project.developer3 %}<li>{{ project.developer3.first_name }} {{ project.developer3.last_name }}</li>{% endif %}
-					{% if project.developer4 %}<li>{{ project.developer4.first_name }} {{ project.developer4.last_name }}</li>{% endif %}
+					{% if project.developer4 %}<li>{{ project.developer4.first_name }} {{ project.developer4.last_name }}</li>{% endif %} -->
 	          	</ul>
 	          	<h4>Semester: </h4>
 	          	<li>{{ project.semester }}</li>
@@ -56,7 +57,7 @@
 					{% endfor %}
 	          	</ul>
 	          	<h4>Description:</h4>
-		        <li>{{ project.description }}</li>
+		        <p>{{ project.description }}</p>
 		        <br>
 		        
 		        
@@ -97,37 +98,37 @@
 
   </div>
   		{% for dev in developers_list %}
-    	<div id="{{ dev.id }}" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-    		<div class="modal-header">
-      			<h3>{{ dev.name }}</h3>
-    		</div>
-    		<div class="modal-body">
-      			<div>
-        			<div class="half-modal">
-          				<h4>Major: </h4>
-          				<ul>
-              				{% for maj in dev.majors %}
-								<li>{{ maj }}</li>
-							{% endfor %}
-						</ul>
-          				<h4>Projects: </h4>
-          				<ul>
-            				{% for proj_name in dev.projects_names %}
-								<li><a href="../{% for proj_id in dev.projects_ids %}{% ifequal forloop.counter forloop.parentloop.counter %}{{ proj_id }}{% endifequal %}{% endfor %}">{{ proj_name }}</a></li>
-							{% endfor %}
-          				</ul>
-          				<h4>Bio: </h4>
-          				<li>{{ dev.bio }}</li>
-          				<h4>Current Status: </h4>
-          				<li>{{ dev.status }}</li>
+        {% if dev %}
+      	<div id="{{ dev.id }}" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      		<div class="modal-header">
+        			<h3>{{ dev.first_name }} {{ dev.last_name }}</h3>
+      		</div>
+      		<div class="modal-body">
+        			<div>
+          			<div class="half-modal">
+            				<h4>Major: </h4>
+            				<ul>
+      								<li>{{ dev.major }}</li>
+  						      </ul>
+            				<h4>Projects: </h4>
+            				<ul>
+              				{% for proj in dev.projects_lists %}
+        								<li><a href="../">{{ proj_name }}</a></li>
+        							{% endfor %}
+            				</ul>
+            				<h4>Bio: </h4>
+            				<p>{{ dev.bio }}</p>
+            				<h4>Current Status: </h4>
+            				<li>{{ dev.status }}</li>
+          			</div>
+          			<div class="half-modal">
+            				<img src="{{ dev.image.url }}" alt="">
+          			</div>
         			</div>
-        			<div class="half-modal">
-          				<img src="{{ dev.image.url }}" alt="">
-        			</div>
-      			</div>
+      		</div>
     		</div>
-  		</div>
-        {% endfor %}
+        {% endif %}
+      {% endfor %}
       	<hr>
 
       	<footer id="contact">
