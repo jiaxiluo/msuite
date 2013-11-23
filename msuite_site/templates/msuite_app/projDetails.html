@@ -24,7 +24,18 @@
     </div><!-- /.navbar-wrapper -->
     <div class="container nonindex">
       	<div class="title">
-        	<h1>{{ project.name }}</h1>
+        	<h1>{{ project.name }}
+          <form class="pull-right" action="{{ request.path }}" method="post" style = "display: inline-block;">
+            <button type="submit" name="like" class="pull-right" style = "width:35px; height:30px; border-radius:7px;">
+              {% ifequal like 0 %}
+              <img src="/media/images/glyphicons_free/glyphicons/png/glyphicons_343_thumbs_up.png" alt="Like">
+              {% else %}
+              <img src="/media/images/glyphicons_free/glyphicons/png/glyphicons_344_liked.png" alt="Liked">
+              {% endifequal %}
+            </button>
+            {% csrf_token %}
+          </form>
+          <small class = "pull-right likeCount">{{ project.likes}}</small></h1>
       	</div>  
 
       	<hr>
@@ -68,32 +79,29 @@
 	        
 	        
       	</div>
-      	<a class = "leaveComment">Leave a comment</a><br>
-		<div id="commentBox" style="display:none">
+      <a class = "leaveComment" href="#">Leave a comment</a><br>
+  		<form id="commentBox" style="display:none" action="{{ request.path }}" method="post" >
         <div class="input-group">
-        
-  		<input style = "width: 90%;" type="text" class="form-control" placeholder="...">
-  		<button type="button" class="btn btn-primary" style="vertical-align: top;">Submit</button>
-		</div>
+    		<input name="comment" style = "width: 90%;" type="text" class="form-control" placeholder="...">
+        {% csrf_token %}
+    		<button type="submit" class="btn btn-primary" style="vertical-align: top;">Submit</button>
+  		</form>
 		
 
    		</div>
-   		<a class = "showComments">Show/hide comments</a>
+   		<a class = "showComments" href="#">Show/hide comments</a>
    		<div class="well" id="comments" style="background-color: white; display:none;">
    		<h4>Comments </h4>
-   		<div class="well" id="001">
-   		<span class="label label-default">Anonymous/uniqname</span><br>
-   		My comment about this project
-   		</div>
-   		<div class="well" id="002">
-   		<span class="label label-default">Anonymous/uniqname</span><br>
-   		another comment
-   		</div>
-   		<ul class="pager">
+      {% for comment in project.comments %}
+     		<div class="well" id="001">
+     		{{ comment }}
+     		</div>
+   		{% endfor %}
+<!--    		<ul class="pager">
   		<li><a style = "width:70px;"class = "previous thePager" href="#">Previous</a></li>
   		<li id="commentPageNumber">1</li>
   		<li ><a style = "width:70px;" class = "next thePager" href="#">Next</a></li>
-		</ul>
+		</ul> -->
 
 
   </div>
@@ -112,9 +120,11 @@
   						      </ul>
             				<h4>Projects: </h4>
             				<ul>
-              				{% for proj in dev.projects_lists %}
-        								<li><a href="../">{{ proj_name }}</a></li>
-        							{% endfor %}
+              				{% if dev.project0 %}<li><a href="../{{ dev.project0.id }}">{{ dev.project0.name }}</a></li>{% endif %}
+                      {% if dev.project1 %}<li><a href="../{{ dev.project1.id }}">{{ dev.project1.name }}</a></li>{% endif %}
+                      {% if dev.project2 %}<li><a href="../{{ dev.project2.id }}">{{ dev.project2.name }}</a></li>{% endif %}
+                      {% if dev.project3 %}<li><a href="../{{ dev.project3.id }}">{{ dev.project3.name }}</a></li>{% endif %}
+                      {% if dev.project4 %}<li><a href="../{{ dev.project4.id }}">{{ dev.project4.name }}</a></li>{% endif %}
             				</ul>
             				<h4>Bio: </h4>
             				<p>{{ dev.bio }}</p>

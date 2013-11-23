@@ -54,16 +54,17 @@
 
 	<div>
 		<h1 style = "display: inline;">More Projects!</h1>
-		<label class="pull-right" style = "display: inline-block; height: 30px;">organize: &nbsp
-		
-<form class="pull-right" action="" style = "display: inline-block;">
-<select name="organize">
-<option value="alphabetically">alphabetically</option>
-<option value="newest">by date (newest first)</option>
-<option value="oldest">by date (oldest first)</option>
-</select>
-</form>
-</label>		
+		<label class="pull-right" style = "display: inline-block; height: 30px;">
+		<form class="pull-right" action="" method="post" style = "display: inline-block;">
+			<span>organize: &nbsp</span>
+			<select name="order" onchange="this.form.submit()">
+				<option value="abc" {% ifequal order 'abc' %}selected{% endifequal %}>alphabetically</option>
+				<option value="newest" {% ifequal order 'newest' %}selected{% endifequal %}>by date (newest first)</option>
+				<option value="oldest" {% ifequal order 'oldest' %}selected{% endifequal %}>by date (oldest first)</option>
+			</select>
+			{% csrf_token %}
+		</form>
+		</label>		
 		
 
 	</div>  

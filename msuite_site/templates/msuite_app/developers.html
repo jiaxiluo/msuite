@@ -41,51 +41,31 @@
         {% for dev in developers_list %}
         	<div id="{{ dev.id }}" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
         		<div class="modal-header">
-<<<<<<< HEAD
           			<h3>{{ dev.first_name }} {{ dev.last_name }}</h3>
-=======
-          			<h3>{{ dev.name }}</h3>
->>>>>>> 8be5c4cd5f36db07f1da0be0580092d04654a380
         		</div>
         		<div class="modal-body">
           			<div>
             			<div class="half-modal">
-              				<h4>Major: </h4>
-              				<ul>
-<<<<<<< HEAD
-	              				{% for maj in dev.majors %}
-        									<li>{{ maj }}</li>
-        								{% endfor %}
-        							</ul>
-              				<h4>Projects: </h4>
-              				<ul>
-                				{% for proj_name in dev.projects_names %}
-        									<li><a href="../{% for proj_id in dev.projects_ids %}{% ifequal forloop.counter forloop.parentloop.counter %}{{ proj_id }}{% endifequal %}{% endfor %}">{{ proj_name }}</a></li>
-        								{% endfor %}
-=======
-        						<li>{{ dev.major }}</li>
-        					</ul>
-              				<h4>Projects: </h4>
-              				<ul>
-                				{% if dev.project0 %}<li>{{ dev.project0 }}</li>{% endif %}
-                				{% if dev.project1 %}<li>{{ dev.project1 }}</li>{% endif %}
-                				{% if dev.project2 %}<li>{{ dev.project2 }}</li>{% endif %}
-                				{% if dev.project3 %}<li>{{ dev.project3 }}</li>{% endif %}
-                				{% if dev.project4 %}<li>{{ dev.project4 }}</li>{% endif %}
->>>>>>> 8be5c4cd5f36db07f1da0be0580092d04654a380
-              				</ul>
-              				<h4>Bio: </h4>
-              				<li>{{ dev.bio }}</li>
-              				<h4>Current Status: </h4>
-              				<li>{{ dev.status }}</li>
-<<<<<<< HEAD
-=======
-              				<li>{{ dev.email }}</li>
->>>>>>> 8be5c4cd5f36db07f1da0be0580092d04654a380
-            			</div>
-            			<div class="half-modal">
-              				<img src="{{ dev.image.url }}" alt="">
-            			</div>
+                    <h4>Major: </h4>
+                    <ul>
+                      <li>{{ dev.major }}</li>
+                    </ul>
+                    <h4>Projects: </h4>
+                    <ul>
+                      {% if dev.project0 %}<li><a href="../{{ dev.project0.id }}">{{ dev.project0.name }}</a></li>{% endif %}
+                      {% if dev.project1 %}<li><a href="../{{ dev.project1.id }}">{{ dev.project1.name }}</a></li>{% endif %}
+                      {% if dev.project2 %}<li><a href="../{{ dev.project2.id }}">{{ dev.project2.name }}</a></li>{% endif %}
+                      {% if dev.project3 %}<li><a href="../{{ dev.project3.id }}">{{ dev.project3.name }}</a></li>{% endif %}
+                      {% if dev.project4 %}<li><a href="../{{ dev.project4.id }}">{{ dev.project4.name }}</a></li>{% endif %}
+                    </ul>
+                    <h4>Bio: </h4>
+                    <p>{{ dev.bio }}</p>
+                    <h4>Current Status: </h4>
+                    <li>{{ dev.status }}</li>
+                </div>
+                <div class="half-modal">
+                    <img src="{{ dev.image.url }}" alt="">
+                </div>
           			</div>
         		</div>
       		</div>
@@ -95,11 +75,7 @@
 
       	<footer id="contact">
         	<span>Contact us: msuite@umich.edu</span>
-<<<<<<< HEAD
-        	<span class="copy">&copy; Michigan Mobile Manufactory 2013</span>
-=======
         	<span class="copy">&copy; Michigan Mobile Manufacturing 2013</span>
->>>>>>> 8be5c4cd5f36db07f1da0be0580092d04654a380
       	</footer>
 
     </div> <!-- /container -->
